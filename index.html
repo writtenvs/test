@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гей или не гей</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="gay">
+
+        
+        <h1>Гей или не гей</h1>
+        </div>
+    </header>
+
+    <div id="banner">
+        <img id="randomImage" src="image1.jpg" alt="Фотография">
+    </div>
+    <div class="button1">
+
+    
+    <button  onclick="updateImage()">ГЕЙ БЛЯ <br> кликай</button>
+</div>
+    <script>
+        const images = [
+            './image/image1.jpg',
+            './image/image2.jpg',
+            './image/image3.jpg',
+            './image/image4.jpg',
+            './image/image5.jpg',
+            './image/image6.jpg'
+        ];
+
+        function updateImage() {
+            const randomIndex = Math.floor(Math.random() * images.length);
+            const randomImage = images[randomIndex];
+            document.getElementById('randomImage').src = randomImage;
+        }
+    </script>
+      <button class="button" onclick="openModal()">если ты гей открой</button>
+
+      <div id="videoModal" class="modal">
+          <div class="modal-content">
+              <span class="close" onclick="closeModal()">&times;</span>
+              <iframe id="videoPlayer" width="250" height="400" src="" frameborder="0" allowfullscreen></iframe>
+          </div>
+      </div>
+  
+      <script>
+          function openModal() {
+              const videoUrl = "vidio/vidio.mp4"; // Замените на URL вашего видео
+              document.getElementById('videoPlayer').src = videoUrl;
+              document.getElementById('videoModal').style.display = "block";
+          }
+  
+          function closeModal() {
+              document.getElementById('videoPlayer').src = ""; // Отключаем видео при закрытии
+              document.getElementById('videoModal').style.display = "none";
+          }
+      </script>
+  
+</body>
+</html>
